@@ -304,14 +304,6 @@ async function drawSeasonPaths(league) {
 	// 	}
 	// }
 
-	$('.typeahead').on('focus', function() {
-	    $(this).parent().siblings().addClass('active');
-	}).on('blur', function() {
-	    if (!$(this).val()) {
-	        $(this).parent().siblings().removeClass('active');
-	    }
-	});
-
 	$('#basketball-team-input').typeahead({
 		hint: true,
 		highlight: true,
@@ -358,7 +350,7 @@ async function drawSeasonPaths(league) {
 	d3.select("#nba-autocomplete")
 		.style("display", "block")
 	d3.select("#basketball-team-input")
-		.property('value', "Choose your team")
+		.property('value', "")
 	$('#basketball-team-input').on('typeahead:selected', function (e, team) {
 		drawSeasonPathsByTeam(league, team, seasonData, teamData, wrapper, bounds, dimensions, tiles, tilesGroup, yearIntervals, xScale, yScale)
 		DEFAULT_TEAM = team
